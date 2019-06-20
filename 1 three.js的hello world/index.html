@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>1 three.js的hello world</title>
+    <script src="lib/three.min.js"></script>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    //创建场景
+    var scene = new THREE.Scene();
+    //设置相机
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    //渲染器
+    var renderer = new THREE.WebGLRenderer({
+        antialias: true    //是否开启反锯齿
+    });
+    //设置渲染器的高度和宽度，第三个参数设置为false，则按场景大小等比缩放显示
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
+    //将渲染器添加到html当中
+    document.body.appendChild(renderer.domElement);
+
+    //盒子模型
+    var gemoetry = new THREE.BoxGeometry(1, 2, 1);
+    //使用网孔基础材料（MeshBasicMaterial）进行着色器
+    var material = new THREE.MeshBasicMaterial({
+        color: 0x00ffff
+    });
+    //使用网孔（Mesh）来承载几何模型
+    var cube = new THREE.Mesh(gemoetry, material);
+    //将模型添加到场景中
+    scene.add(cube);
+    //将相机沿Z轴偏移5
+    camera.position.z = 5;
+
+    //设置一个动画函数
+    var animate = function () {
+        requestAnimationFrame(animate);
+
+        //每次调用模型沿XY轴旋转0.01
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+
+        //使用渲染器把场景和相机都渲染出来
+        renderer.render(scene, camera);
+    }
+
+    animate();
+</script>
