@@ -10,5 +10,4 @@
 
 [4 带纹理的立方体](https://biglazybones.github.io/threeJsDemo/4%20%E5%B8%A6%E7%BA%B9%E7%90%86%E7%9A%84%E7%AB%8B%E6%96%B9%E4%BD%93/)
 
-[5 three.js一个好的书写结构]
-(https://biglazybones.github.io/threeJsDemo/5%20three.js%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E4%B9%A6%E5%86%99%E7%BB%93%E6%9E%84/)
+[5 three.js一个好的书写结构](https://biglazybones.github.io/threeJsDemo/5%20three.js%E4%B8%80%E4%B8%AA%E5%A5%BD%E7%9A%84%E4%B9%A6%E5%86%99%E7%BB%93%E6%9E%84/)
