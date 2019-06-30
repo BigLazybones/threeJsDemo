@@ -33,7 +33,7 @@
     }
 
     //渲染器
-    var renderer, width, height;
+    var renderer, width, height, stats;
     function initRender() {
         width = window.innerWidth;
         height = window.innerHeight;
@@ -45,6 +45,12 @@
         renderer.setPixelRatio(window.devicePixelRatio);
         document.body.appendChild(renderer.domElement);
         renderer.setClearColor(0x000000, 1.0);
+
+        stats = new Stats();
+        stats.domElement.style.position = "absolute";
+        stats.domElement.style.left = "0px";
+        stats.domElement.style.top = "0px";
+        document.body.appendChild(stats.domElement);
     }
 
     //相机
@@ -158,8 +164,10 @@
     }
 
     function animate() {
+        stats.begin();
         requestAnimationFrame(animate);
         render();
+        stats.end();
     }
 
     function render() {
