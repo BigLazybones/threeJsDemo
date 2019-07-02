@@ -31,3 +31,5 @@
 [14 模型的格式及模型的加载](https://biglazybones.github.io/threeJsDemo/14%20%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8F%8A%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8A%A0%E8%BD%BD/)
 
 [15 WebGL性能篇：高效的渲染几何体，如何保持高帧数](https://biglazybones.github.io/threeJsDemo/15%20WebGL%E6%80%A7%E8%83%BD%E7%AF%87%EF%BC%9A%E9%AB%98%E6%95%88%E7%9A%84%E6%B8%B2%E6%9F%93%E5%87%A0%E4%BD%95%E4%BD%93%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8C%81%E9%AB%98%E5%B8%A7%E6%95%B0/)
+
+[16 obj模型的加载](https://biglazybones.github.io/threeJsDemo/16%20obj%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%8A%A0%E8%BD%BD/)
