@@ -37,3 +37,5 @@
 [17 多视图显示](https://biglazybones.github.io/threeJsDemo/17%20%E5%A4%9A%E8%A7%86%E5%9B%BE%E6%98%BE%E7%A4%BA/)
 
 [18 拾取-如何通过鼠标选中物体](https://biglazybones.github.io/threeJsDemo/18%20%E6%8B%BE%E5%8F%96-%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E9%BC%A0%E6%A0%87%E9%80%89%E4%B8%AD%E7%89%A9%E4%BD%93)
+
+[19 three.js绘制字体模型](https://biglazybones.github.io/threeJsDemo/19%20three.js%E7%BB%98%E5%88%B6%E5%AD%97%E4%BD%93%E6%A8%A1%E5%9E%8B/)
