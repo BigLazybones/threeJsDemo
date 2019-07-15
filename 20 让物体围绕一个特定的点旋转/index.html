@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/three.min.js"></script>
+    <script src="./lib/stats.min.js"></script>
+    <script src="./lib/Tween.js"></script>
+    <script src="./lib/loaders/OBJLoader.js"></script>
+    <title>20 让物体围绕一个特定的点旋转</title>
+    <style>
+        div#canvas-frame {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 600px;
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas-frame"></div>
+</body>
+</html>
+
+<script>
+    window.onload = function(){
+        threeStart();
+    }
+
+    var renderer;
+    var stats;
+
+    function initThree(){
+        var canvasFrameDOM = document.getElementById('canvas-frame');
+        width = canvasFrameDOM.clientWidth;
+        height = canvasFrameDOM.clientHeight;
+
+        renderer = new THREE.WebGLRenderer({
+            antialias: true  //是否开启反锯齿
+        });  
+        renderer.setSize(width, height);
+        canvasFrameDOM.appendChild(renderer.domElement);
+        renderer.setClearColor(0xffffff, 1.0);
+
+        stats = new Stats();
+        stats.domElement.style.position = "absolute";
+        stats.domElement.style.top = "0px";
+        stats.domElement.style.left = "0px";
+        canvasFrameDOM.appendChild(stats.domElement);
+    }
+
+    var camera;
+    function initCamera(){
+        camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
+        camera.position.x = 0;
+        camera.position.y = 300;
+        camera.position.z = 600;
+        camera.up.x = 0;
+        camera.up.y = 1000;
+        camera.up.z = 0;
+        camera.lookAt(0, 0, 0);
+    }
+
+    var scene;
+    function initScene(){
+        scene = new THREE.Scene();
+    }
+
+    var light;
+    function initLight(){
+        light = new THREE.AmbientLight(0xff0000);
+        light.position.set(100,100,200);
+        scene.add(light);
+    }
+
+    var boxMesh,objMesh = undefined;
+    var pivot = undefined;
+    var axis1,axis2,axis3;
+    function initObject(){
+        // 加载obj模型
+        var manager = new THREE.LoadingManager(); //加载管理器
+
+        var loader = new THREE.OBJLoader(manager);
+        loader.load('./models/model.obj', function (object) {
+            objMesh = object;
+
+            pivot = new THREE.Group();
+            box = new THREE.Box3().setFromObject( objMesh );   //Box3创建一个介于最小和最大值之间的包围盒     setFromObject计算和世界轴对齐的一个对象（含其子对象）的包围盒。
+            pivot.add( objMesh );
+
+            box.center( objMesh.position );   //center返回此box的中心点。
+
+            objMesh.position.multiplyScalar( - 1 );
+
+            scene.add( pivot );
+            box.center( pivot.position ); 
+    
+            // 辅助坐标
+            axis1 = new THREE.AxisHelper(100);
+            axis1.position.copy( pivot.position );
+            scene.add( axis1 );
+            
+            axis2 = new THREE.AxisHelper(200);
+            axis2.position.copy( objMesh.position );
+            scene.add( axis2 );
+        });
+
+        //绘制立方体
+        var geometry = new THREE.BoxGeometry(30,30,30);
+        for(var i=0; i<geometry.faces.length; i+=2){
+            var hex = Math.random() * 0xffffff;
+            geometry.faces[i].color.setHex(hex);
+            geometry.faces[i + 1].color.setHex(hex);
+        }
+        
+        var material = new THREE.MeshBasicMaterial({
+            vertexColors: THREE.FaceColors
+        });
+
+
+        boxMesh = new THREE.Mesh(geometry, material);
+        boxMesh.position = new THREE.Vector3(0,0,0);
+        scene.add(boxMesh);
+
+    }
+
+    function initGrid(){
+        var helper = new THREE.GridHelper(1000, 50, 0x0000ff, 0x808080);   //网格辅助
+        scene.add(helper);
+    }
+
+    function threeStart(){
+        initThree();
+        initCamera();
+        initScene();
+        initLight();
+        initObject();
+        initGrid();
+
+        animation();
+    }
+
+    function animation(){
+        boxMesh.rotateY(0.01);
+        if(pivot != undefined){
+            pivot.rotateY(0.01);
+        }
+
+        stats.update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(animation);
+    }
+
+
+</script>
