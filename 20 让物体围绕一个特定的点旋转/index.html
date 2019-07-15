@@ -91,19 +91,19 @@
             box = new THREE.Box3().setFromObject( objMesh );   //Box3创建一个介于最小和最大值之间的包围盒     setFromObject计算和世界轴对齐的一个对象（含其子对象）的包围盒。
             pivot.add( objMesh );
 
-            box.center( objMesh.position );   //center返回此box的中心点。
+            box.getCenter( objMesh.position );   //center返回此box的中心点。
 
-            objMesh.position.multiplyScalar( - 1 );
+            objMesh.position.multiplyScalar( - 1 );  
 
             scene.add( pivot );
-            box.center( pivot.position ); 
+            box.getCenter( pivot.position ); 
     
             // 辅助坐标
-            axis1 = new THREE.AxisHelper(100);
+            axis1 = new THREE.AxesHelper(100);
             axis1.position.copy( pivot.position );
             scene.add( axis1 );
             
-            axis2 = new THREE.AxisHelper(200);
+            axis2 = new THREE.AxesHelper(150);
             axis2.position.copy( objMesh.position );
             scene.add( axis2 );
         });
@@ -125,6 +125,9 @@
         boxMesh.position = new THREE.Vector3(0,0,0);
         scene.add(boxMesh);
 
+        axis3 = new THREE.AxesHelper(200);
+        axis3.position.copy( boxMesh.position );
+        scene.add( axis3 );
     }
 
     function initGrid(){
