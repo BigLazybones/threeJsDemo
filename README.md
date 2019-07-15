@@ -40,4 +40,4 @@
 
 [19 three.js绘制字体模型](https://biglazybones.github.io/threeJsDemo/19%20three.js%E7%BB%98%E5%88%B6%E5%AD%97%E4%BD%93%E6%A8%A1%E5%9E%8B/)
 
-[20 让物体围绕一个特定的点旋转](https://biglazybones.github.io/threeJsDemo/20%20%E8%AE%A9%E7%89%A9%E4%BD%93%E5%9B%B4%E7%BB%95%E4%B8%80%E4%B8%AA%E7%89%B9%E5%AE%9A%E7%9A%84%E7%82%B9%E6%97%8B%E8%BD%AC)
+[20 让物体围绕一个特定的点旋转](https://biglazybones.github.io/threeJsDemo/20%20%E8%AE%A9%E7%89%A9%E4%BD%93%E5%9B%B4%E7%BB%95%E4%B8%80%E4%B8%AA%E7%89%B9%E5%AE%9A%E7%9A%84%E7%82%B9%E6%97%8B%E8%BD%AC/)
