@@ -86,14 +86,13 @@
         var loader = new THREE.OBJLoader(manager);
         loader.load('./models/model.obj', function (object) {
             objMesh = object;
-
+            
             pivot = new THREE.Group();
             box = new THREE.Box3().setFromObject( objMesh );   //Box3创建一个介于最小和最大值之间的包围盒     setFromObject计算和世界轴对齐的一个对象（含其子对象）的包围盒。
             pivot.add( objMesh );
 
             box.getCenter( objMesh.position );   //center返回此box的中心点。
-
-            objMesh.position.multiplyScalar( - 1 );  
+            objMesh.position.multiplyScalar( -1 );   //缩放坐标，都乘以-1，变为负数
 
             scene.add( pivot );
             box.getCenter( pivot.position ); 
@@ -106,6 +105,10 @@
             axis2 = new THREE.AxesHelper(150);
             axis2.position.copy( objMesh.position );
             scene.add( axis2 );
+
+            boxHelper = new THREE.BoxHelper(objMesh);
+            scene.add(boxHelper);
+            pivot.add( boxHelper );
         });
 
         //绘制立方体
