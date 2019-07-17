@@ -43,3 +43,5 @@
 [20 让物体围绕一个特定的点旋转](https://biglazybones.github.io/threeJsDemo/20%20%E8%AE%A9%E7%89%A9%E4%BD%93%E5%9B%B4%E7%BB%95%E4%B8%80%E4%B8%AA%E7%89%B9%E5%AE%9A%E7%9A%84%E7%82%B9%E6%97%8B%E8%BD%AC/)
 
 [21 three.js使用导入的模型生成粒子](https://biglazybones.github.io/threeJsDemo/21%20three.js%E4%BD%BF%E7%94%A8%E5%AF%BC%E5%85%A5%E7%9A%84%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90%E7%B2%92%E5%AD%90/)
+
+[22 three.js从高级几何体创建THREE.POINTS](https://biglazybones.github.io/threeJsDemo/22%20three.js%E4%BB%8E%E9%AB%98%E7%BA%A7%E5%87%A0%E4%BD%95%E4%BD%93%E5%88%9B%E5%BB%BATHREE.POINTS/)
